@@ -21,6 +21,9 @@ public class SupportStartFragment extends Fragment {
             public void onClick(View view) {
                 final SupportEndFragment toFragment = new SupportEndFragment();
                 FragmentTransitionLauncher.with(view.getContext()).from(view.findViewById(R.id.imageView)).prepare(toFragment);
+                Bundle parcelExtra = new Bundle();
+                parcelExtra.putString("parcelKey","aaaaa");
+                toFragment.getArguments().putParcelable("test", parcelExtra);
                 getFragmentManager().beginTransaction().replace(R.id.support_content, toFragment).addToBackStack(null).commit();
             }
         });

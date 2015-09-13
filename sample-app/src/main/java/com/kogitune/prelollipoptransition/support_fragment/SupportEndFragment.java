@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.kogitune.activity_transition.fragment.ExitFragmentTransition;
 import com.kogitune.activity_transition.fragment.FragmentTransition;
@@ -19,6 +20,8 @@ public class SupportEndFragment extends Fragment {
         View v = inflater.inflate(R.layout.support_fragment_end, container, false);
         final ExitFragmentTransition exitFragmentTransition = FragmentTransition.with(this).to(v.findViewById(R.id.fragment_imageView)).start(savedInstanceState);
         exitFragmentTransition.startExitListening();
+        Bundle parcelBundle = getArguments().getParcelable("test");
+        Toast.makeText(getActivity(), parcelBundle.getString("parcelKey"), Toast.LENGTH_LONG).show();
         return v;
     }
 
